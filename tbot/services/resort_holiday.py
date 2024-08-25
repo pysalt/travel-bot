@@ -1,10 +1,17 @@
-from urllib.parse import urljoin
+from pydantic import BaseModel, TypeAdapter
 
-from tbot.settings import settings
+from tbot.services.base_http import BaseClient
 
 
-class ResortHolidayClient:
-    async def get_current_currency(self):
-        path = 'currency/current/'
-        url = urljoin(settings.resort_holiday.url, path)
-        return url
+class Currency(BaseModel):
+    currencyISO: str
+    rate: str
+
+currency_parser = TypeAdapter(list[Currency])
+
+
+class ResortHolidayClient(BaseClient):
+    async def get_current_currency(self) -> list[Currency]:
+        path = '/currency/current/'
+        response = await self.get(path)
+        return currency_parser.validate_python(response)
