@@ -1,0 +1,9 @@
+version: "3.4"
+
+services:
+  bot:
+    build:
+      context: .
+      target: dev
+    env_file:
+      - tbot/.env
