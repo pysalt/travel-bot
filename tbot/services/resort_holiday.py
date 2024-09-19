@@ -7,6 +7,7 @@ class Currency(BaseModel):
     currencyISO: str
     rate: str
 
+
 currency_parser = TypeAdapter(list[Currency])
 
 

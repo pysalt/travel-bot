@@ -7,7 +7,6 @@ from aiogram.types.base import TelegramObject
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 
-
 def register_all_middlewares(dp: Dispatcher, scheduler):
     dp.update.outer_middleware(SchedulerMiddleware(scheduler))
 

@@ -19,7 +19,7 @@ async def command_start_handler(message: Message) -> None:
     """
     This handler receives messages with `/start` command
     """
-    await message.answer(f"Hello, {html.bold(message.from_user.full_name)}!")
+    await message.answer(f'Hello, {html.bold(message.from_user.full_name)}!')
 
 
 @router.message(Command('currency_today'))
@@ -46,7 +46,9 @@ async def subscribe_on_currency(message: Message, scheduler: AsyncIOScheduler) -
 
 
 @router.message(Command('currency_unsubscribe'))
-async def unsubscribe_from_currency(message: Message, scheduler: AsyncIOScheduler) -> None:
+async def unsubscribe_from_currency(
+    message: Message, scheduler: AsyncIOScheduler
+) -> None:
     """
     Unsubscribe from last currency notifications from Holiday Resort API
     """

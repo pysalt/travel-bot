@@ -13,6 +13,7 @@ class BaseClientError(BaseException):
 class APIRequestError(BaseClientError):
     pass
 
+
 class APIUnavailableError(BaseClientError):
     pass
 

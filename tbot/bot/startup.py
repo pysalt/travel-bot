@@ -23,7 +23,10 @@ async def run_bot() -> None:
     )
     scheduler = AsyncIOScheduler()
 
-    bot = Bot(token=settings.bot.token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+    bot = Bot(
+        token=settings.bot.token,
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML),
+    )
 
     dp = Dispatcher(storage=storage)
     dp.include_router(router)
