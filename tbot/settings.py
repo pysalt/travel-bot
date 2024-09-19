@@ -10,8 +10,16 @@ class TelegramBot(BaseModel):
     token: str
 
 
+class MongoDb(BaseModel):
+    host: str
+    port: int
+    username: str
+    password: str
+
+
 class Settings(BaseSettings):
     bot: TelegramBot
+    mongo: MongoDb
 
     resort_holiday: ResortHoliday = ResortHoliday()
 
