@@ -56,8 +56,8 @@ async def unsubscribe_from_currency(
         scheduler.remove_job(job_id=_get_job_id_for_user(message.chat.id))
     except JobLookupError:
         await message.answer('Вы не подписаны на курс валют')
-
-    await message.answer('Вы успешно отписались')
+    else:
+        await message.answer('Вы успешно отписались')
 
 
 async def _send_currency_message(bot: Bot, chat_id: int) -> None:
