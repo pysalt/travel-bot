@@ -4,6 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class ResortHoliday(BaseModel):
     url: str = 'https://resort-holiday.com/api/'
+    currency_notification_cron: str = '1 6 * * *'
 
 
 class TelegramBot(BaseModel):

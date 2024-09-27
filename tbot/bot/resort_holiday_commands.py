@@ -38,7 +38,7 @@ async def subscribe_on_currency(message: Message, scheduler: AsyncIOScheduler) -
     scheduler.add_job(
         _send_currency_message,
         kwargs={'bot': message.bot, 'chat_id': message.chat.id},
-        trigger=CronTrigger.from_crontab('1 10 * * *'),  # Every day at 10:01 a.m.
+        trigger=CronTrigger.from_crontab(settings.resort_holiday.currency_notification_cron),
         id=_get_job_id_for_user(message.chat.id),
     )
 
